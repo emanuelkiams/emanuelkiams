@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Portfolio — Capstone Thesis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <script id="portfolio-data">
+  const DATA = {
+
+    /* ── PROFILE ─────────────────────────────────────────────── */
+    profile: {
+      name:   "Emanuel R. Kiamco",        
+      role:   "System Analyst",    
+      course: "BSIS — 4th Year",        
+      school: "Davao del Norte State College", 
+      sy:     "2025–2026",            
+      bio:    "Hello! I'm Emanuel R. Kiamco, a BS in Information Systems student at the Institute of Computing, Davao del Norte State College (DNSC). I am a motivated and hardworking individual who believes in continuous learning and self-improvement. I enjoy taking on new challenges, developing my skills, and working toward my goals with dedication and determination. I am always eager to learn, grow, and make a positive impact wherever I can.",
+      photo:  "image1.png",            
+    },
+
+    /* ── PROJECTS / SYSTEMS DEVELOPED ───────────────────────── */
+    projects: [
+      {
+        title: "FurCare: A Web-Based Management Information System for Cliff Pet Grooming Services",
+        type:  "MIS",      
+        desc:  "A web-based Management Information System for Cliff Pet Grooming Services, which addresses the problems of a manual, paper-based business operation, including missed appointments, inaccurate inventory records, slow transaction processing, and difficulty generating timely business reports, highlighting the need for a digital system to improve the overall efficiency and organization of the business's day-to-day operations.",
+        year:  "2025–2026",
+        image: "image2.png", 
+      },
+      {
+        title: "Maguayan",
+        type:  "Mobile App",
+        desc:  "Maguayan is a digital platform that connects fishermen directly with buyers to facilitate the sale of fresh seafood. It also provides a job discovery feature tailored for graduates and job seekers in marine-related fields. By bridging the gap between traditional fishing practices and modern technology, the platform enhances market access for fishermen, promotes sustainability in seafood distribution, and supports career opportunities in the Blue Economy. This approach fosters economic growth, environmental stewardship, and greater efficiency within the marine sector..",
+        year:  "2023–2024",
+        image: "image3.png",                      
+      },
+     
+    ],
+
+    /* ── TRAININGS & SEMINARS ────────────────────────────────── */
+    trainings: [
+      {
+        title: "Python Essentials 1",
+        org:   "Cisco Networking Academy",
+        date:  "October 20, 2025",
+        cert:  "cisco1.png",        
+      },
+      {
+        title: "Python Essentials 2",
+        org:   "Cisco Networking Academy",
+        date:  "November 16, 2025",
+        cert:  "cisco2.png",
+      },
+      {
+        title: "Tree Planting Certificate",
+        org:   "Municipality of Carmen, Brgy. Ising",
+        date:  "May 12, 2026",
+        cert:  "treeplanting.jpg",
+      },
+    
+    
+    ],
+
+    /* ── COMPETITIONS & AWARDS ───────────────────────────────── */
+    awards: [
+      {
+        title:  "5x5 Men Basketball - Champion",
+        event:  "PSITS Festival of Talents 2024",
+        date:   "March 2024",
+        place:  "🏆 Champion",        
+        image:  "image4.jpg",   
+      },
+      {
+        title:  "Best in Booth",
+        event:  "Start Up Sundayag. Pitch Festival",
+        date:   "December 5-6 2024",
+        place:  "Top 6",
+        image:  "startup1.jpg",
+      },
+      
+    ],
+
+    /* ── OTHER ACHIEVEMENTS ──────────────────────────────────── */
+    achievements: [
+      {
+        title: "Dean's Lister 2nd Honor",
+        cat:   "🎓 Academic",          
+        org:   "Davao del Norte State College",
+        date:  "1st Semester, 2024-2025",
+        image: "honor.png",
+      },
+     
+      
+    ],
+
+  }; 
+  </script>
+ 
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0d1b2a; --navy2:#132337; --gold:#c8973a; --gold2:#e8b85a;
+      --cream:#f5f0e8; --white:#ffffff; --muted:#8a99aa;
+      --border:rgba(200,151,58,.22); --card:rgba(19,35,55,.85);
+      --radius:14px; --tr:.3s cubic-bezier(.4,0,.2,1);
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'DM Sans',sans-serif; background:var(--navy); color:var(--cream); min-height:100vh; overflow-x:hidden; }
+    body::before {
+      content:''; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.45;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+    /* NAV */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 40px; height:64px;
+      background:rgba(13,27,42,.93); backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1.15rem; color:var(--gold); }
+    .nav-links { display:flex; gap:28px; list-style:none; }
+    .nav-links a { color:var(--muted); font-size:.83rem; text-decoration:none; transition:color var(--tr); font-weight:500; letter-spacing:.05em; text-transform:uppercase; }
+    .nav-links a:hover { color:var(--gold2); }
+    /* HERO */
+    .hero {
+      position:relative; min-height:100vh;
+      display:flex; align-items:center; padding:80px 40px 60px;
+      overflow:hidden;
+    }
+    .hero-bg {
+      position:absolute; inset:0; z-index:0;
+      background:radial-gradient(ellipse 80% 60% at 55% 40%,rgba(200,151,58,.12) 0%,transparent 70%);
+    }
+    .hero-ring {
+      position:absolute; top:-8%; right:-3%; width:520px; height:520px; border-radius:50%;
+      border:1px solid rgba(200,151,58,.11);
+      box-shadow:0 0 0 80px rgba(200,151,58,.04),0 0 0 160px rgba(200,151,58,.02);
+      z-index:0; pointer-events:none;
+    }
+    .hero-content { position:relative; z-index:1; max-width:660px; }
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:10px; margin-bottom:22px;
+      font-size:.77rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); font-weight:500;
+    }
+    .eyebrow::before { content:''; display:block; width:30px; height:1px; background:var(--gold); }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.5rem,5.5vw,4.2rem); line-height:1.12; font-weight:800; color:var(--white); margin-bottom:20px; }
+    .hero h1 em { font-style:italic; color:var(--gold2); }
+    .hero-sub { font-size:1.03rem; color:var(--muted); line-height:1.72; margin-bottom:32px; max-width:520px; }
+    .hero-meta { display:flex; gap:12px; flex-wrap:wrap; }
+    .htag { padding:7px 18px; border:1px solid var(--border); border-radius:40px; font-size:.82rem; color:var(--cream); background:rgba(200,151,58,.08); }
+    /* PROFILE CARD */
+    .profile-card {
+      position:absolute; right:80px; top:50%; transform:translateY(-50%);
+      width:300px; background:var(--card); border:1px solid var(--border);
+      border-radius:var(--radius); overflow:hidden; backdrop-filter:blur(8px); z-index:1;
+    }
+    .profile-img-wrap {
+      height:200px; background:linear-gradient(135deg,#1a2d45,#0d1b2a);
+      display:flex; align-items:center; justify-content:center; overflow:hidden;
+    }
+    .profile-img-wrap img { width:100%; height:100%; object-fit:cover; }
+    .profile-avatar { font-size:5rem; line-height:1; }
+    .profile-info { padding:16px 18px; }
+    .profile-name { font-family:'Playfair Display',serif; font-size:1rem; color:var(--white); margin-bottom:4px; }
+    .profile-role { font-size:.76rem; color:var(--gold); letter-spacing:.06em; text-transform:uppercase; margin-bottom:8px; }
+    .profile-school { font-size:.75rem; color:var(--muted); line-height:1.55; }
+    /* SECTIONS */
+    section { position:relative; z-index:1; padding:90px 40px; max-width:1100px; margin:0 auto; }
+    .sec-label { display:flex; align-items:center; gap:14px; font-size:.74rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:14px; }
+    .sec-label::after { content:''; flex:1; height:1px; background:var(--border); }
+    h2.sec-title { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.7rem); font-weight:800; color:var(--white); margin-bottom:44px; line-height:1.15; }
+    h2.sec-title span { color:var(--gold2); font-style:italic; }
+    /* GRIDS */
+    .grid { display:grid; gap:24px; }
+    .g2 { grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); }
+    .g3 { grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); }
+    /* PROJECT CARD */
+    .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:transform var(--tr),box-shadow var(--tr),border-color var(--tr); }
+    .card:hover { transform:translateY(-4px); box-shadow:0 20px 60px rgba(0,0,0,.4); border-color:rgba(200,151,58,.35); }
+    .card-thumb { height:186px; background:linear-gradient(135deg,#132337,#1e3550); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .card-thumb img { width:100%; height:100%; object-fit:cover; cursor:pointer; transition:transform .4s ease; }
+    .card-thumb img:hover { transform:scale(1.04); }
+    .card-thumb .te { font-size:3rem; }
+    .badge { position:absolute; top:12px; right:12px; padding:4px 10px; border-radius:30px; font-size:.69rem; font-weight:500; letter-spacing:.06em; text-transform:uppercase; background:rgba(200,151,58,.2); color:var(--gold2); border:1px solid var(--border); }
+    .card-body { padding:22px; }
+    .card-title { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--white); margin-bottom:8px; font-weight:600; }
+    .card-desc { font-size:.87rem; color:var(--muted); line-height:1.65; margin-bottom:16px; }
+    .tag-row { display:flex; flex-wrap:wrap; gap:8px; }
+    .tag { padding:3px 10px; border-radius:20px; font-size:.72rem; background:rgba(200,151,58,.1); color:var(--gold); border:1px solid rgba(200,151,58,.2); }
+    /* CERT CARD */
+    .cert-card { display:flex; gap:18px; align-items:flex-start; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:22px; transition:transform var(--tr),box-shadow var(--tr); }
+    .cert-card:hover { transform:translateY(-3px); box-shadow:0 16px 48px rgba(0,0,0,.35); border-color:rgba(200,151,58,.3); }
+    .cert-icon { width:52px; height:52px; border-radius:12px; flex-shrink:0; background:linear-gradient(135deg,rgba(200,151,58,.25),rgba(200,151,58,.08)); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:1.6rem; }
+    .cert-info { flex:1; }
+    .cert-title { font-family:'Playfair Display',serif; font-size:.97rem; color:var(--white); margin-bottom:5px; font-weight:600; }
+    .cert-org { font-size:.80rem; color:var(--gold); margin-bottom:4px; }
+    .cert-date { font-size:.75rem; color:var(--muted); margin-bottom:10px; }
+    .cert-view { display:inline-flex; align-items:center; gap:6px; font-size:.76rem; color:var(--gold2); border:1px solid rgba(200,151,58,.3); border-radius:20px; padding:4px 12px; transition:background var(--tr); cursor:pointer; }
+    .cert-view:hover { background:rgba(200,151,58,.12); }
+    /* AWARD CARD */
+    .aw-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:28px 24px; text-align:center; transition:transform var(--tr),box-shadow var(--tr); position:relative; overflow:hidden; }
+    .aw-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+    .aw-card:hover { transform:translateY(-4px); box-shadow:0 20px 50px rgba(0,0,0,.4); }
+    .aw-card img { width:100%; height:140px; object-fit:cover; border-radius:8px; margin-bottom:14px; cursor:pointer; }
+    .aw-trophy { font-size:2.8rem; margin-bottom:12px; display:block; }
+    .aw-title { font-family:'Playfair Display',serif; font-size:1rem; color:var(--white); margin-bottom:6px; }
+    .aw-event { font-size:.81rem; color:var(--gold); margin-bottom:6px; }
+    .aw-date { font-size:.75rem; color:var(--muted); }
+    .aw-place { display:inline-block; margin-top:12px; padding:4px 14px; border-radius:20px; font-size:.74rem; font-weight:500; background:rgba(200,151,58,.18); color:var(--gold2); border:1px solid var(--border); }
+    /* ACHIEVEMENT CARD */
+    .ev-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:transform var(--tr); }
+    .ev-card:hover { transform:translateY(-3px); border-color:rgba(200,151,58,.3); }
+    .ev-img { height:190px; background:linear-gradient(135deg,#1e3550,#0d2035); display:flex; align-items:center; justify-content:center; font-size:2.5rem; overflow:hidden; }
+    .ev-img img { width:100%; height:100%; object-fit:cover; cursor:pointer; }
+    .ev-cap { padding:14px 16px; }
+    .ev-cap strong { color:var(--cream); display:block; margin-bottom:4px; font-size:.92rem; }
+    .ev-cap p { font-size:.84rem; color:var(--muted); line-height:1.55; }
+    /* STATS */
+    .stats-row { display:flex; gap:32px; flex-wrap:wrap; margin-bottom:46px; }
+    .stat-box { text-align:center; }
+    .stat-num { font-family:'Playfair Display',serif; font-size:2.4rem; font-weight:800; color:var(--gold2); line-height:1; }
+    .stat-lbl { font-size:.74rem; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-top:4px; }
+    /* DIVIDER */
+    .divider { height:1px; background:var(--border); max-width:1100px; margin:0 auto; }
+    /* FOOTER */
+    footer { position:relative; z-index:1; text-align:center; padding:48px 40px; border-top:1px solid var(--border); color:var(--muted); font-size:.82rem; }
+    footer strong { color:var(--gold); font-family:'Playfair Display',serif; }
+    /* LIGHTBOX */
+    #lightbox { display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,.9); backdrop-filter:blur(6px); align-items:center; justify-content:center; }
+    #lightbox.active { display:flex; }
+    #lightbox img { max-width:88vw; max-height:88vh; border-radius:12px; box-shadow:0 32px 80px rgba(0,0,0,.7); }
+    #lb-close { position:absolute; top:20px; right:24px; color:var(--cream); font-size:2rem; cursor:pointer; opacity:.7; transition:opacity var(--tr); line-height:1; }
+    #lb-close:hover { opacity:1; }
+    /* ANIMATIONS */
+    .fade-in { opacity:0; transform:translateY(22px); transition:opacity .55s ease,transform .55s ease; }
+    .fade-in.visible { opacity:1; transform:none; }
+    /* RESPONSIVE */
+    @media(max-width:860px){ .profile-card{display:none;} nav{padding:0 16px;} .nav-links{gap:14px;} section{padding:60px 20px;} .hero{padding:100px 20px 60px;} }
+    @media print { nav,.print-bar{display:none!important;} body{background:white;color:#111;} section{padding:40px 20px;} .card,.cert-card,.aw-card,.ev-card{border:1px solid #ddd;box-shadow:none;} .hero{min-height:auto;padding:80px 20px 40px;} }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" id="nav-name">Student Portfolio</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#trainings">Trainings</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="about">
+  <div class="hero-bg"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-content fade-in">
+    <div class="eyebrow">My Portfolio</div>
+    <h1 id="hero-name"></h1>
+    <p class="hero-sub" id="hero-bio"></p>
+    <div class="hero-meta">
+      <span class="htag" id="hero-course"></span>
+      <span class="htag" id="hero-school"></span>
+      <span class="htag" id="hero-sy"></span>
+    </div>
+  </div>
+  <div class="profile-card fade-in">
+    <div class="profile-img-wrap" id="profile-img-wrap">
+      <div class="profile-avatar" id="profile-avatar">👤</div>
+      <img id="profile-photo" src="" alt="" style="display:none;" />
+    </div>
+    <div class="profile-info">
+      <div class="profile-name" id="profile-name"></div>
+      <div class="profile-role" id="profile-role"></div>
+      <div class="profile-school" id="profile-school"></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-label">01</div>
+  <h2 class="sec-title">Programs &<br><span>Systems Developed</span></h2>
+  <div class="stats-row"><div class="stat-box"><div class="stat-num" id="stp">0</div><div class="stat-lbl">Projects</div></div></div>
+  <div class="grid g2" id="pgrid"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TRAININGS -->
+<section id="trainings">
+  <div class="sec-label">02</div>
+  <h2 class="sec-title">Certificates &<br><span>Trainings Attended</span></h2>
+  <div class="stats-row"><div class="stat-box"><div class="stat-num" id="stt">0</div><div class="stat-lbl">Trainings</div></div></div>
+  <div id="tlist" style="display:grid;gap:16px;"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="sec-label">03</div>
+  <h2 class="sec-title">Competitions &<br><span>Awards</span></h2>
+  <div class="stats-row"><div class="stat-box"><div class="stat-num" id="sta">0</div><div class="stat-lbl">Awards</div></div></div>
+  <div class="grid g3" id="agrid"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="sec-label">04</div>
+  <h2 class="sec-title">Other<br><span>Achievements</span></h2>
+  <div class="stats-row"><div class="stat-box"><div class="stat-num" id="stac">0</div><div class="stat-lbl">Achievements</div></div></div>
+  <div class="grid g3" id="acgrid"></div>
+</section>
+
+<footer>
+  <strong id="ft-name"></strong> &nbsp;·&nbsp; Capstone Thesis Portfolio<br>
+  <span style="margin-top:6px;display:block;" id="ft-school"></span>
+</footer>
+
+
+<div id="lightbox" onclick="closeLB()">
+  <span id="lb-close">✕</span>
+  <img id="lb-img" src="" alt="" />
+</div>
+
+<script>
+  function openLB(src){ document.getElementById('lb-img').src=src; document.getElementById('lightbox').classList.add('active'); }
+  function closeLB(){ document.getElementById('lightbox').classList.remove('active'); }
+
+  function renderProfile(){
+    const p = DATA.profile;
+    
+    const words = p.name.trim().split(' ');
+    const line1 = words.slice(0, words.length > 2 ? 2 : 1).join(' ');
+    const line2 = words.slice(words.length > 2 ? 2 : 1).join(' ');
+    document.getElementById('hero-name').innerHTML = line1 + (line2 ? '<br><em>' + line2 + '</em>' : '');
+    document.getElementById('hero-bio').textContent    = p.bio;
+    document.getElementById('hero-course').textContent = '🎓 ' + p.course;
+    document.getElementById('hero-school').textContent = '🏫 ' + p.school;
+    document.getElementById('hero-sy').textContent     = '📅 S.Y. ' + p.sy;
+    document.getElementById('profile-name').textContent  = p.name;
+    document.getElementById('profile-role').textContent  = p.role;
+    document.getElementById('profile-school').innerHTML  = 'Institute of Computing<br>' + p.school;
+    document.getElementById('nav-name').textContent      = p.name + "'s Portfolio";
+    document.getElementById('ft-name').textContent       = p.name;
+    document.getElementById('ft-school').textContent     = 'Institute of Computing — ' + p.school;
+    // Profile photo
+    if(p.photo){
+      const img = document.getElementById('profile-photo');
+      img.src = p.photo; img.style.display = 'block';
+      document.getElementById('profile-avatar').style.display = 'none';
+      img.onerror = ()=>{ img.style.display='none'; document.getElementById('profile-avatar').style.display='block'; };
+    }
+  }
+
+  function renderProjects(){
+    const grid = document.getElementById('pgrid');
+    DATA.projects.forEach(item => {
+      const c = document.createElement('div'); c.className = 'card';
+      const tagHtml = (item.tags||[]).map(t => '<span class="tag">'+t+'</span>').join('');
+      const thumb = item.image
+        ? `<img src="${item.image}" alt="${item.title}" onclick="openLB('${item.image}')" onerror="this.style.display='none';this.nextSibling.style.display='block';" /><span class="te" style="display:none;">💻</span>`
+        : `<span class="te">💻</span>`;
+      c.innerHTML = `
+        <div class="card-thumb">${thumb}<span class="badge">${item.type||'Project'}</span></div>
+        <div class="card-body">
+          <div class="card-title">${item.title}</div>
+          <div class="card-desc">${item.desc||''}</div>
+          <div class="tag-row">${tagHtml}${item.year?'<span class="tag">📅 '+item.year+'</span>':''}</div>
+        </div>`;
+      grid.appendChild(c);
+    });
+    document.getElementById('stp').textContent = DATA.projects.length;
+  }
+
+  function renderTrainings(){
+    const list = document.getElementById('tlist');
+    DATA.trainings.forEach(item => {
+      const c = document.createElement('div'); c.className = 'cert-card';
+      c.innerHTML = `
+        <div class="cert-icon">📜</div>
+        <div class="cert-info">
+          <div class="cert-title">${item.title}</div>
+          <div class="cert-org">${item.org||''}</div>
+          <div class="cert-date">${item.date||''}${item.hours?' · '+item.hours:''}</div>
+          ${item.cert?`<span class="cert-view" onclick="openLB('${item.cert}')">📎 View Certificate</span>`:''}
+        </div>`;
+      list.appendChild(c);
+    });
+    document.getElementById('stt').textContent = DATA.trainings.length;
+  }
+
+  function renderAwards(){
+    const grid = document.getElementById('agrid');
+    DATA.awards.forEach(item => {
+      const c = document.createElement('div'); c.className = 'aw-card';
+      const imgHtml = item.image
+        ? `<img src="${item.image}" alt="${item.title}" onclick="openLB('${item.image}')" onerror="this.outerHTML='<span class=&quot;aw-trophy&quot;>🏆</span>'" />`
+        : `<span class="aw-trophy">🏆</span>`;
+      c.innerHTML = `
+        ${imgHtml}
+        <div class="aw-title">${item.title}</div>
+        <div class="aw-event">${item.event||''}</div>
+        <div class="aw-date">${item.date||''}</div>
+        <span class="aw-place">${item.place||''}</span>`;
+      grid.appendChild(c);
+    });
+    document.getElementById('sta').textContent = DATA.awards.length;
+  }
+
+  function renderAchievements(){
+    const grid = document.getElementById('acgrid');
+    DATA.achievements.forEach(item => {
+      const c = document.createElement('div'); c.className = 'ev-card';
+      const imgHtml = item.image
+        ? `<img src="${item.image}" alt="${item.title}" onclick="openLB('${item.image}')" onerror="this.outerHTML='⭐'" />`
+        : `⭐`;
+      c.innerHTML = `
+        <div class="ev-img">${imgHtml}</div>
+        <div class="ev-cap">
+          <strong>${item.cat||''} ${item.title}</strong>
+          <p>${item.org||''}${item.date?' · '+item.date:''}</p>
+          ${item.desc?'<p style="margin-top:5px;">'+item.desc+'</p>':''}
+        </div>`;
+      grid.appendChild(c);
+    });
+    document.getElementById('stac').textContent = DATA.achievements.length;
+  }
+
+  renderProfile();
+  renderProjects();
+  renderTrainings();
+  renderAwards();
+  renderAchievements();
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  setTimeout(() => document.querySelectorAll('.hero .fade-in').forEach(el => el.classList.add('visible')), 150);
+</script>
+</body>
+</html>
